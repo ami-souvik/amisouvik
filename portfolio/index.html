@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Souvik Dey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --text: #1a1a1a;
+      --muted: #666;
+      --subtle: #999;
+      --border: #e8e8e8;
+      --link: #0055bb;
+      --bg: #fff;
+      --max-width: 680px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── Header ── */
+    header {
+      margin-bottom: 48px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+
+    .header-text {
+      flex: 1;
+    }
+
+    header h1 {
+      /* font-size: 26px; */
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      color: #111;
+    }
+
+    .tagline {
+      margin-top: 5px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: var(--link);
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 44px;
+    }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--subtle);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p {
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Now list ── */
+    .now-list {
+      list-style: none;
+    }
+
+    .now-list li {
+      font-size: 14px;
+      color: #444;
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
+
+    .now-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #bbb;
+    }
+
+    /* ── Experience ── */
+    .exp-item {
+      margin-bottom: 24px;
+    }
+
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2px 12px;
+    }
+
+    .exp-company {
+      font-weight: 600;
+      font-size: 15px;
+      color: #111;
+    }
+
+    .exp-period {
+      font-size: 13px;
+      color: var(--subtle);
+      white-space: nowrap;
+    }
+
+    .exp-role {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+      color: #555;
+      margin-top: 6px;
+      line-height: 1.65;
+    }
+
+    /* ── Projects ── */
+    .project-item {
+      margin-bottom: 18px;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .project-title a {
+      color: var(--link);
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--subtle);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      body {
+        padding: 40px 18px 60px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="me.png" alt="Souvik Dey" class="profile-photo" />
+    <div class="header-text">
+      <h1>Souvik Dey</h1>
+      <p class="tagline">Full Stack Engineer &nbsp;·&nbsp; Indie Developer &nbsp;·&nbsp; Founder, Qurtesy Labs</p>
+      <nav class="nav-links">
+        <a href="mailto:dsouvik141@gmail.com">Email</a>
+        <a href="https://discord.gg/CjdrFra7" target="_blank" rel="noopener">Discord</a>
+        <a href="https://qurtesy.com" target="_blank" rel="noopener">Qurtesy Labs</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I'm a full-stack engineer with 5+ years of production experience across Salesforce, React Native, Django, and AWS.
+      I started writing code in college and have not really stopped since—first at a startup in Kolkata,
+      then as the full-stack developer on a <a href="#projects">product that got shut down</a>,
+      then as a Heroku specialist, and now as a React Native engineer at <strong>PwC</strong>.
+    </p>
+    <p>
+      On the side I build and ship small tools under <strong>Qurtesy Labs</strong>—calm, useful software
+      with no logins, no ads, and no noise. I also co-founded a café once. It closed.
+      Both experiences taught me things I wouldn't trade.
+    </p>
+    <p>
+      Currently exploring what AI agents can actually do in production through
+      <a href="#projects">AgentTree</a>, and thinking carefully about systems engineering and infrastructure
+      as the next chapter.
+    </p>
+  </section>
+
+  <section id="now">
+    <h2>Now</h2>
+    <ul class="now-list">
+      <li>React Native & Salesforce developer at <strong>PwC</strong>, Kolkata.</li>
+      <li>Building <strong>AgentTree</strong> — an AI agent platform, figuring out the edges of what LLM agents can do.
+      </li>
+      <li>Shipping small tools at <a href="https://qurtesy.com" target="_blank" rel="noopener">Qurtesy Labs</a>.</li>
+      <li>Studying system design and deepening DS&amp;A for what comes next.</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-row">
+        <span class="exp-company">PwC</span>
+        <span class="exp-period">Apr 2025 – Present</span>
+      </div>
+      <div class="exp-role">React Native & Salesforce Developer · Kolkata</div>
+      <p class="exp-desc">
+        Mobile engineering at one of the Big Four.
+      </p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-row">
+        <span class="exp-company">InfoBeans</span>
+        <span class="exp-period">Mar 2024 – Apr 2025</span>
+      </div>
+      <div class="exp-role">Heroku Specialist &amp; Python Developer · Pune</div>
+      <p class="exp-desc">
+        Joined to specialise in Heroku platform management and monitoring.
+        Expanded scope to include Python development. Used the bandwidth to sharpen
+        data structures and algorithms in parallel.
+      </p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-row">
+        <span class="exp-company">CloudKaptan</span>
+        <span class="exp-period">Jan 2020 – Mar 2024</span>
+      </div>
+      <div class="exp-role">Full Stack Developer (Salesforce → React Native → Django / AWS)</div>
+      <p class="exp-desc">
+        Joined in my final semester as a Salesforce developer on NBFC client projects.
+        Moved to React Native (with a Node.js + Heroku middleware layer) on a hybrid mobile project.
+        Eventually transitioned to full-stack on <strong>App0</strong> — a product company building
+        agentic systems for financial services and e-commerce, using React, Django, and AWS.
+        App0 wound down in December 2025. Four years; three stacks; a lot of production incidents.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-item">
+      <div class="project-title">AgentTree</div>
+      <p class="project-desc">
+        An AI agent platform I'm building to understand what multi-agent systems can realistically
+        do in production. Still early. The honest goal is to figure out where the hype ends and
+        the utility begins.
+      </p>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">
+        <a href="https://quiet-goals.qurtesy.com/" target="_blank" rel="noopener">Quiet Goals</a>
+      </div>
+      <p class="project-desc">
+        Turn your most important milestone into a private wallpaper.
+        No account, no tracking—just your goal on your screen, every day.
+        Built with Next.js and Canvas API.
+      </p>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">
+        <a href="https://quotely-six.vercel.app/" target="_blank" rel="noopener">Quotely</a>
+      </div>
+      <p class="project-desc">
+        A mobile-first tool for creating professional quotations quickly.
+        No sign-up required.
+      </p>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">
+        <a href="https://qlarify.vercel.app/" target="_blank" rel="noopener">Qlarify</a>
+      </div>
+      <p class="project-desc">
+        Plain English → system architecture diagrams.
+        Describe your system; get a diagram. Stop dragging rectangles.
+      </p>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">Flooke</div>
+      <p class="project-desc">
+        An order-ticketing system I built in React Native for our café.
+        First time I shipped a real product to real users. The café closed; the lessons didn't.
+      </p>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">The Pseudo Engineers <span style="font-weight:400;color:#888;">(2021–2023)</span></div>
+      <p class="project-desc">
+        A café I co-founded with friends in Belgharia, Kolkata. We opened right after COVID —
+        in hindsight, not ideal timing. We closed it after roughly two years.
+        Best decision I regret. Worst decision I don't.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="exp-item">
+      <div class="exp-row">
+        <span class="exp-company">Techno India University, Kolkata</span>
+        <span class="exp-period">2016 – 2020</span>
+      </div>
+      <div class="exp-role">B.Tech, Electronics &amp; Communications Engineering</div>
+      <p class="exp-desc" style="margin-top:6px;">
+        Got a job offer before finishing the degree. That turned out to be the most important thing
+        that happened in college.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Souvik Dey &nbsp;·&nbsp; Kolkata &nbsp;·&nbsp; <a href="mailto:dsouvik141@gmail.com">dsouvik141@gmail.com</a></p>
+  </footer>
+
+</body>
+
+</html>
