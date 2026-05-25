@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Souvik Dey</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
   <style>
     *,
     *::before,
@@ -20,236 +20,690 @@
     }
 
     :root {
-      --text: #1a1a1a;
-      --muted: #666;
-      --subtle: #999;
-      --border: #e8e8e8;
-      --link: #0055bb;
-      --bg: #fff;
-      --max-width: 680px;
+      --black: #0a0a0a;
+      --ink: #1a1a1a;
+      --slate: #4a4a4a;
+      --muted: #888;
+      --border: #e0e0e0;
+      --bg: #f9f7f4;
+      --white: #fff;
+      --accent: #c9392c;
+      --blue: #005689;
+      --green: #00783e;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Libre Baskerville', serif;
-      font-style: italic;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text);
-      background: var(--bg);
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 60px 24px 80px;
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Header ── */
-    header {
-      margin-bottom: 48px;
-      display: flex;
-      align-items: flex-start;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── MASTHEAD ─────────────────────────────────────── */
+    .masthead {
+      padding: 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .masthead-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .masthead-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      padding: 16px 0;
       gap: 20px;
     }
 
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-      }
+    .masthead-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
-    .profile-photo {
-      width: 120px;
-      height: 120px;
+    .masthead-profile img {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       object-fit: cover;
-      flex-shrink: 0;
       border: 2px solid var(--border);
     }
 
-    .header-text {
+    .masthead-meta {
+      display: flex;
+      flex-direction: column;
+      font-size: 11.5px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    .masthead-meta strong {
+      display: block;
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .logo-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      text-align: center;
       flex: 1;
     }
 
-    header h1 {
-      /* font-size: 26px; */
-      font-weight: 700;
-      letter-spacing: -0.4px;
-      color: #111;
+    .masthead-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 0;
     }
 
-    .tagline {
-      margin-top: 5px;
-      font-size: 14px;
+    .masthead-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 13px;
       color: var(--muted);
     }
 
-    .nav-links {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 16px;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      color: var(--link);
-      text-decoration: none;
-      transition: border-color 0.15s;
-    }
-
-    .nav-links a:hover {
-      border-bottom-color: var(--link);
-    }
-
-    /* ── Sections ── */
-    section {
-      margin-bottom: 44px;
-    }
-
-    h2 {
-      font-size: 13px;
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 2px solid var(--black);
+      padding: 8px 18px;
+      font-size: 12px;
       font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: all 0.18s;
+    }
+
+    .contact-btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    .nav {
+      display: flex;
+      gap: 20px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-link {
+      padding: 13px 0;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--slate);
+      position: relative;
+      cursor: pointer;
+      transition: color 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-link:hover {
+      color: var(--black);
+    }
+
+    .nav-link.active {
+      color: var(--blue);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--blue);
+    }
+
+    /* ── PAGE CONTENT ─────────────────────────────────── */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── HERO / ABOUT ─────────────────────────────────── */
+    .hero {
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    .hero-img {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .hero-body {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    /* ── NOW LIST (inside hero) ───────────────────────── */
+    .related-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 1.8px;
-      color: var(--subtle);
-      margin-bottom: 18px;
+      color: var(--muted);
+      margin-bottom: 10px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
 
-    p {
-      color: #444;
-      margin-bottom: 12px;
+    .now-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    p:last-child {
-      margin-bottom: 0;
+    .now-item:last-child {
+      border-bottom: none;
     }
 
-    a {
-      color: var(--link);
-      text-decoration: none;
+    .now-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
     }
 
-    a:hover {
+    .now-text {
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .now-text a {
+      color: var(--blue);
+    }
+
+    .now-text a:hover {
       text-decoration: underline;
     }
 
-    /* ── Now list ── */
-    .now-list {
-      list-style: none;
+    /* ── PROJECT TAGS ─────────────────────────────────── */
+    .project-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 14px;
     }
 
-    .now-list li {
-      font-size: 14px;
-      color: #444;
-      padding: 4px 0 4px 18px;
-      position: relative;
+    .tag-blue {
+      background: var(--blue);
+      color: #fff;
     }
 
-    .now-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: #bbb;
+    .tag-red {
+      background: var(--accent);
+      color: #fff;
     }
 
-    /* ── Experience ── */
-    .exp-item {
-      margin-bottom: 24px;
+    .tag-green {
+      background: var(--green);
+      color: #fff;
     }
 
-    .exp-item:last-child {
+    .tag-outline {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--slate);
+    }
+
+    /* ── EXPERIENCE SECTION ───────────────────────────── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0 20px;
+      border-bottom: 3px solid var(--black);
       margin-bottom: 0;
     }
 
-    .exp-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 2px 12px;
+    .section-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--black);
+      letter-spacing: -0.01em;
     }
 
-    .exp-company {
-      font-weight: 600;
-      font-size: 15px;
-      color: #111;
+    .section-meta {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: none;
+    }
+
+    .exp-card {
+      padding: 28px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-card:nth-child(3n) {
+      border-right: none;
+    }
+
+    .exp-card:nth-child(3n+1) {
+      padding-left: 0;
+    }
+
+    .exp-card:nth-child(3n) {
+      padding-right: 0;
+    }
+
+    .exp-card:last-child {
+      border-right: none;
     }
 
     .exp-period {
-      font-size: 13px;
-      color: var(--subtle);
-      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .exp-company {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 6px;
     }
 
     .exp-role {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 1px;
+      font-size: 12.5px;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
     .exp-desc {
-      font-size: 14px;
-      color: #555;
-      margin-top: 6px;
-      line-height: 1.65;
-    }
-
-    /* ── Projects ── */
-    .project-item {
-      margin-bottom: 18px;
-    }
-
-    .project-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .project-title {
-      font-weight: 600;
-      font-size: 15px;
-    }
-
-    .project-title a {
-      color: var(--link);
-    }
-
-    .project-desc {
-      font-size: 14px;
-      color: #555;
-      margin-top: 2px;
-    }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: 64px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
       font-size: 13px;
-      color: var(--subtle);
+      color: var(--slate);
+      line-height: 1.65;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 480px) {
-      body {
-        padding: 40px 18px 60px;
+    /* ── PROJECTS GRID ────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: none;
+    }
+
+    .proj-card {
+      padding: 28px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .proj-card:nth-child(3n) {
+      border-right: none;
+    }
+
+    .proj-card:nth-child(3n+1) {
+      padding-left: 0;
+    }
+
+    .proj-card:nth-child(3n) {
+      padding-right: 0;
+    }
+
+    .proj-card:last-child {
+      border-bottom: none;
+    }
+
+    .proj-img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .proj-img-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.45s ease;
+    }
+
+    .proj-card:hover .proj-img-inner {
+      transform: scale(1.04);
+    }
+
+    .proj-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--black);
+      margin: 12px 0 8px;
+      transition: color 0.15s;
+    }
+
+    .proj-card:hover .proj-title {
+      color: var(--blue);
+      cursor: pointer;
+    }
+
+    .proj-title a {
+      color: inherit;
+    }
+
+    .proj-body {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.6;
+      padding-bottom: 16px;
+    }
+
+    /* ── GRADIENT PLACEHOLDERS ────────────────────────── */
+    .g1 {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    }
+
+    .g2 {
+      background: linear-gradient(135deg, #0f2027, #2c5364);
+    }
+
+    .g3 {
+      background: linear-gradient(135deg, #200122, #6f0000);
+    }
+
+    .g4 {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
+
+    .g5 {
+      background: linear-gradient(135deg, #134e5e, #71b280);
+    }
+
+    .g6 {
+      background: linear-gradient(135deg, #1a1a2e, #e94560);
+    }
+
+    .g-label {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ── EDUCATION ────────────────────────────────────── */
+    .edu-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-row:last-child {
+      border-bottom: none;
+    }
+
+    .edu-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      color: var(--slate);
+      margin-top: 3px;
+    }
+
+    .edu-note {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      margin-top: 4px;
+    }
+
+    .edu-period {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── NEWSLETTER ───────────────────────────────────── */
+    .newsletter {
+      background: var(--black);
+      padding: 56px 40px;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .newsletter h2 {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 36px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .newsletter p {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    .nl-form {
+      display: flex;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .nl-input {
+      flex: 1;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      outline: none;
+    }
+
+    .nl-input::placeholder {
+      color: #555;
+    }
+
+    .nl-btn {
+      padding: 11px 22px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s;
+    }
+
+    .nl-btn:hover {
+      background: #a82d22;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid #222;
+      padding: 32px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: #555;
+      transition: color 0.15s;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #444;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 960px) {
+
+      .masthead,
+      .page,
+      .newsletter,
+      footer {
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
-      header h1 {
-        font-size: 22px;
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 0;
+      }
+
+      .hero-content {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .exp-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-card,
+      .proj-card {
+        padding: 24px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .masthead-profile img {
+        width: 84px;
+        height: 84px;
+      }
+
+      .masthead-meta {
+        display: none;
+      }
+
+      .masthead-top {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .masthead-cta {
+        align-items: center;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
   </style>
@@ -257,174 +711,242 @@
 
 <body>
 
-  <header>
-    <img src="me.png" alt="Souvik Dey" class="profile-photo" />
-    <div class="header-text">
-      <h1>Souvik Dey</h1>
-      <p class="tagline">Full Stack Engineer &nbsp;·&nbsp; Indie Developer &nbsp;·&nbsp; Founder, Qurtesy Labs</p>
-      <nav class="nav-links">
-        <a href="mailto:dsouvik141@gmail.com">Email</a>
-        <a href="https://discord.gg/CjdrFra7" target="_blank" rel="noopener">Discord</a>
-        <a href="https://qurtesy.com" target="_blank" rel="noopener">Qurtesy Labs</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-      </nav>
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-top">
+
+        <div class="masthead-profile">
+          <img src="me.png" alt="Souvik Dey" />
+          <div class="masthead-meta">
+            <strong>Souvik Dey</strong>
+            <span class="masthead-tagline">Engineer · Builder · Founder</span>
+            <span>Kolkata, India</span>
+          </div>
+        </div>
+
+        <div class="logo-wordmark">Souvik Dey</div>
+
+        <div class="masthead-cta">
+          <a href="mailto:dsouvik141@gmail.com" class="contact-btn">
+            Get in touch
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M1 9L9 1M9 1H3.5M9 1V6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
     </div>
   </header>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I'm a full-stack engineer with 5+ years of production experience across Salesforce, React Native, Django, and AWS.
-      I started writing code in college and have not really stopped since—first at a startup in Kolkata,
-      then as the full-stack developer on a <a href="#projects">product that got shut down</a>,
-      then as a Heroku specialist, and now as a React Native engineer at <strong>PwC</strong>.
-    </p>
-    <p>
-      On the side I build and ship small tools under <strong>Qurtesy Labs</strong>—calm, useful software
-      with no logins, no ads, and no noise. I also co-founded a café once. It closed.
-      Both experiences taught me things I wouldn't trade.
-    </p>
-    <p>
-      Currently exploring what AI agents can actually do in production through
-      <a href="#projects">AgentTree</a>, and thinking carefully about systems engineering and infrastructure
-      as the next chapter.
-    </p>
-  </section>
+  <!-- MAIN -->
+  <main class="page">
 
-  <section id="now">
-    <h2>Now</h2>
-    <ul class="now-list">
-      <li>React Native & Salesforce developer at <strong>PwC</strong>, Kolkata.</li>
-      <li>Building <strong>AgentTree</strong> — an AI agent platform, figuring out the edges of what LLM agents can do.
-      </li>
-      <li>Shipping small tools at <a href="https://qurtesy.com" target="_blank" rel="noopener">Qurtesy Labs</a>.</li>
-      <li>Studying system design and deepening DS&amp;A for what comes next.</li>
-    </ul>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-
-    <div class="exp-item">
-      <div class="exp-row">
-        <span class="exp-company">PwC</span>
-        <span class="exp-period">Apr 2025 – Present</span>
+    <!-- ── ABOUT / HERO ────────────────────────────────── -->
+    <section id="about">
+      <div class="hero">
+        <div class="hero-content">
+          <div>
+            <span class="project-tag tag-blue">Full Stack Engineer</span>
+            <h1 class="hero-title">Building real systems, shipping calm tools, figuring out where the hype ends</h1>
+            <p class="hero-body">
+              5+ years of production experience across Salesforce, React Native, Django, and AWS.
+              Started writing code in college and haven't really stopped — first at a startup in Kolkata,
+              then as full-stack on a product that got shut down, then as a Heroku specialist,
+              and now as a React Native engineer at <strong>PwC</strong>.
+            </p>
+            <p class="hero-body">
+              On the side I build and ship small tools under <strong>Qurtesy Labs</strong> — calm, useful software
+              with no logins, no ads, and no noise. I also co-founded a café once. It closed.
+              Both experiences taught me things I wouldn't trade.
+            </p>
+          </div>
+          <div>
+            <div class="related-label">What I'm doing now</div>
+            <div class="now-item">
+              <div class="now-dot"></div>
+              <span class="now-text">React Native &amp; Salesforce developer at <strong>PwC</strong>, Kolkata.</span>
+            </div>
+            <div class="now-item">
+              <div class="now-dot"></div>
+              <span class="now-text">Building <strong>AgentTree</strong> — an AI agent platform, figuring out the edges
+                of what LLM agents can do.</span>
+            </div>
+            <div class="now-item">
+              <div class="now-dot"></div>
+              <span class="now-text">Shipping small tools at <a href="https://qurtesy.com" target="_blank"
+                  rel="noopener">Qurtesy Labs</a>.</span>
+            </div>
+            <div class="now-item">
+              <div class="now-dot"></div>
+              <span class="now-text">Studying system design and deepening DS&amp;A for what comes next.</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="exp-role">React Native & Salesforce Developer · Kolkata</div>
-      <p class="exp-desc">
-        Mobile engineering at one of the Big Four.
-      </p>
-    </div>
+    </section>
 
-    <div class="exp-item">
-      <div class="exp-row">
-        <span class="exp-company">InfoBeans</span>
-        <span class="exp-period">Mar 2024 – Apr 2025</span>
+    <!-- ── EXPERIENCE ──────────────────────────────────── -->
+    <section id="experience">
+      <div class="section-header">
+        <h2>Experience</h2>
+        <span class="section-meta">5+ years · three stacks · a lot of production incidents</span>
       </div>
-      <div class="exp-role">Heroku Specialist &amp; Python Developer · Pune</div>
-      <p class="exp-desc">
-        Joined to specialise in Heroku platform management and monitoring.
-        Expanded scope to include Python development. Used the bandwidth to sharpen
-        data structures and algorithms in parallel.
-      </p>
-    </div>
+      <div class="exp-grid">
 
-    <div class="exp-item">
-      <div class="exp-row">
-        <span class="exp-company">CloudKaptan</span>
-        <span class="exp-period">Jan 2020 – Mar 2024</span>
+        <div class="exp-card">
+          <div class="exp-period">Apr 2025 – Present</div>
+          <div class="exp-company">PwC</div>
+          <div class="exp-role">React Native &amp; Salesforce Developer · Kolkata</div>
+          <p class="exp-desc">Mobile engineering at one of the Big Four.</p>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-period">Mar 2024 – Apr 2025</div>
+          <div class="exp-company">InfoBeans</div>
+          <div class="exp-role">Heroku Specialist &amp; Python Developer · Pune</div>
+          <p class="exp-desc">Joined to specialise in Heroku platform management and monitoring.
+            Expanded scope to include Python development. Used the bandwidth to sharpen
+            data structures and algorithms in parallel.</p>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-period">Jan 2020 – Mar 2024</div>
+          <div class="exp-company">CloudKaptan</div>
+          <div class="exp-role">Full Stack Developer — Salesforce · React Native · Django / AWS</div>
+          <p class="exp-desc">Joined in my final semester as a Salesforce developer on NBFC client projects.
+            Moved to React Native (Node.js + Heroku middleware) then transitioned to full-stack on
+            <strong>App0</strong> — agentic systems for financial services and e-commerce.
+            App0 wound down in December 2025. Four years; three stacks.
+          </p>
+        </div>
+
       </div>
-      <div class="exp-role">Full Stack Developer (Salesforce → React Native → Django / AWS)</div>
-      <p class="exp-desc">
-        Joined in my final semester as a Salesforce developer on NBFC client projects.
-        Moved to React Native (with a Node.js + Heroku middleware layer) on a hybrid mobile project.
-        Eventually transitioned to full-stack on <strong>App0</strong> — a product company building
-        agentic systems for financial services and e-commerce, using React, Django, and AWS.
-        App0 wound down in December 2025. Four years; three stacks; a lot of production incidents.
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project-item">
-      <div class="project-title">AgentTree</div>
-      <p class="project-desc">
-        An AI agent platform I'm building to understand what multi-agent systems can realistically
-        do in production. Still early. The honest goal is to figure out where the hype ends and
-        the utility begins.
-      </p>
-    </div>
-
-    <div class="project-item">
-      <div class="project-title">
-        <a href="https://quiet-goals.qurtesy.com/" target="_blank" rel="noopener">Quiet Goals</a>
+    <!-- ── PROJECTS ────────────────────────────────────── -->
+    <section id="projects">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <span class="section-meta">Built under Qurtesy Labs &amp; independently</span>
       </div>
-      <p class="project-desc">
-        Turn your most important milestone into a private wallpaper.
-        No account, no tracking—just your goal on your screen, every day.
-        Built with Next.js and Canvas API.
-      </p>
-    </div>
+      <div class="projects-grid">
 
-    <div class="project-item">
-      <div class="project-title">
-        <a href="https://quotely-six.vercel.app/" target="_blank" rel="noopener">Quotely</a>
+        <div class="proj-card">
+          <div class="proj-img">
+            <div class="g1 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
+              <span class="g-label">AgentTree · AI Agents</span>
+            </div>
+          </div>
+          <span class="project-tag tag-blue">AI &amp; Agents</span>
+          <div class="proj-title">AgentTree</div>
+          <p class="proj-body">An AI agent platform exploring what multi-agent systems can realistically
+            do in production. Still early. The honest goal is to figure out where the hype ends
+            and the utility begins.</p>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img">
+            <div class="g4 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
+              <span class="g-label">Quiet Goals · Next.js</span>
+            </div>
+          </div>
+          <span class="project-tag tag-green">Productivity</span>
+          <div class="proj-title">
+            <a href="https://quiet-goals.qurtesy.com/" target="_blank" rel="noopener">Quiet Goals</a>
+          </div>
+          <p class="proj-body">Turn your most important milestone into a private wallpaper.
+            No account, no tracking — just your goal on your screen, every day.
+            Built with Next.js and Canvas API.</p>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img">
+            <div class="g2 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
+              <span class="g-label">RandomStats · Synthetic Data</span>
+            </div>
+          </div>
+          <span class="project-tag tag-outline">Developer Tools</span>
+          <div class="proj-title">
+            <a href="https://random-stats.vercel.app/" target="_blank" rel="noopener">Random Stats Generator</a>
+          </div>
+          <p class="proj-body">Generate realistic fake datasets instantly — no login, no limits.
+            Design a schema (names, emails, numbers, multiple choice), set a row count,
+            and export as CSV or XLSX. Shareable via URL.</p>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img">
+            <div class="g6 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
+              <span class="g-label">Flooke · React Native</span>
+            </div>
+          </div>
+          <span class="project-tag tag-red">Shipped to Real Users</span>
+          <div class="proj-title">Flooke</div>
+          <p class="proj-body">An order-ticketing system built in React Native for our café.
+            First time I shipped a real product to real users.
+            The café closed; the lessons didn't.</p>
+        </div>
+
       </div>
-      <p class="project-desc">
-        A mobile-first tool for creating professional quotations quickly.
-        No sign-up required.
-      </p>
-    </div>
+    </section>
 
-    <div class="project-item">
-      <div class="project-title">
-        <a href="https://qlarify.vercel.app/" target="_blank" rel="noopener">Qlarify</a>
+    <!-- ── EDUCATION ───────────────────────────────────── -->
+    <section id="education">
+      <div class="section-header">
+        <h2>Education</h2>
+        <span class="section-meta">The most important thing happened before graduation</span>
       </div>
-      <p class="project-desc">
-        Plain English → system architecture diagrams.
-        Describe your system; get a diagram. Stop dragging rectangles.
-      </p>
-    </div>
-
-    <div class="project-item">
-      <div class="project-title">Flooke</div>
-      <p class="project-desc">
-        An order-ticketing system I built in React Native for our café.
-        First time I shipped a real product to real users. The café closed; the lessons didn't.
-      </p>
-    </div>
-
-    <div class="project-item">
-      <div class="project-title">The Pseudo Engineers <span style="font-weight:400;color:#888;">(2021–2023)</span></div>
-      <p class="project-desc">
-        A café I co-founded with friends in Belgharia, Kolkata. We opened right after COVID —
-        in hindsight, not ideal timing. We closed it after roughly two years.
-        Best decision I regret. Worst decision I don't.
-      </p>
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <div class="exp-item">
-      <div class="exp-row">
-        <span class="exp-company">Techno India University, Kolkata</span>
-        <span class="exp-period">2016 – 2020</span>
+      <div class="edu-row">
+        <div>
+          <div class="edu-name">Techno India University, Kolkata</div>
+          <div class="edu-degree">B.Tech, Electronics &amp; Communications Engineering</div>
+          <div class="edu-note">Got a job offer before finishing the degree. That turned out to be the most important
+            thing that happened in college.</div>
+        </div>
+        <div class="edu-period">2016 – 2020</div>
       </div>
-      <div class="exp-role">B.Tech, Electronics &amp; Communications Engineering</div>
-      <p class="exp-desc" style="margin-top:6px;">
-        Got a job offer before finishing the degree. That turned out to be the most important thing
-        that happened in college.
-      </p>
-    </div>
-  </section>
+    </section>
 
+  </main>
+
+  <!-- NEWSLETTER / CONTACT -->
+  <div class="newsletter" id="contact">
+    <h2>Let's build something</h2>
+    <p>Have an interesting problem, project, or just want to say hello — drop me a line.</p>
+    <a href="mailto:dsouvik141@gmail.com" class="contact-btn"
+      style="display:inline-flex;color:#fff;border-color:#fff;margin-bottom:16px;">
+      dsouvik141@gmail.com
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left:6px">
+        <path d="M1 9L9 1M9 1H3.5M9 1V6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
-    <p>Souvik Dey &nbsp;·&nbsp; Kolkata &nbsp;·&nbsp; <a href="mailto:dsouvik141@gmail.com">dsouvik141@gmail.com</a></p>
+    <div class="footer-inner">
+      <div class="footer-logo">Souvik Dey</div>
+      <div class="footer-links">
+        <a href="mailto:dsouvik141@gmail.com">Email</a>
+        <a href="https://discord.gg/CjdrFra7" target="_blank" rel="noopener">Discord</a>
+        <a href="https://qurtesy.com" target="_blank" rel="noopener">Qurtesy Labs</a>
+      </div>
+      <div class="footer-copy">© 2025 Souvik Dey · Kolkata</div>
+    </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 
