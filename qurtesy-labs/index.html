@@ -320,21 +320,30 @@
     }
 
     .proj-card {
-      padding: 28px 28px 28px 0;
+      padding: 28px;
       border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
+    /* Remove right border on every 3rd card (last col) */
+    .proj-card:nth-child(3n),
     .proj-card:last-child {
       border-right: none;
+    }
+
+    /* Remove bottom border on last row (up to 3 cards) */
+    .proj-card:nth-last-child(-n+3) {
+      border-bottom: none;
+    }
+
+    /* First col cards flush left */
+    .proj-card:nth-child(3n+1) {
+      padding-left: 0;
+    }
+
+    /* Last col cards flush right */
+    .proj-card:nth-child(3n) {
       padding-right: 0;
-    }
-
-    .proj-card:nth-child(2) {
-      padding-left: 28px;
-    }
-
-    .proj-card:nth-child(3) {
-      padding-left: 28px;
     }
 
     .proj-img {
@@ -665,42 +674,39 @@
         <div class="hero-visual">
           <div class="hero-img">
             <div class="g1" style="width:100%;height:100%;display:flex;align-items:flex-end;padding:20px">
-              <span
-                style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em">Cortex
-                · Agent Runtime</span>
+              <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.04em">AgentTree · AI Agents</span>
             </div>
           </div>
         </div>
         <div class="hero-content">
           <div>
             <span class="project-tag tag-blue">AI &amp; Agents</span>
-            <h1 class="hero-title">Cortex — a self-correcting agent runtime for production AI workflows</h1>
-            <p class="hero-body">Cortex introduces a feedback loop architecture that detects and corrects agent drift in
-              real time, cutting error propagation by 73% in our internal trials. Open-source and production-ready.</p>
+            <h1 class="hero-title">AgentTree — an AI agent platform exploring what multi-agent systems can do in production</h1>
+            <p class="hero-body">Still early. The honest goal is to figure out where the hype ends and the utility begins — by building real systems, running into real limits, and being transparent about both.</p>
           </div>
           <div>
             <div class="related-label">Related reading</div>
             <div class="blog-item">
               <div class="blog-dot"></div>
               <div class="blog-info">
-                <div class="blog-title">Why self-correcting agents are the missing primitive in AI infrastructure</div>
-                <div class="blog-meta">Ananya Krishnan · 12 min read</div>
+                <div class="blog-title">Where the hype ends and the utility begins — lessons from building real AI agents</div>
+                <div class="blog-meta">Souvik Dey · 10 min read</div>
               </div>
               <span class="blog-arrow">↗</span>
             </div>
             <div class="blog-item">
               <div class="blog-dot"></div>
               <div class="blog-info">
-                <div class="blog-title">Cortex v2: streaming tool calls and real-time pipeline support</div>
-                <div class="blog-meta">Dev Patel · 8 min read</div>
+                <div class="blog-title">Multi-agent coordination without the chaos — early architecture decisions in AgentTree</div>
+                <div class="blog-meta">Souvik Dey · 8 min read</div>
               </div>
               <span class="blog-arrow">↗</span>
             </div>
             <div class="blog-item">
               <div class="blog-dot"></div>
               <div class="blog-info">
-                <div class="blog-title">Benchmarking agent reliability across 10 production deployments</div>
-                <div class="blog-meta">Team Qurtesy · 15 min read</div>
+                <div class="blog-title">The edges of what LLM agents can actually do in production</div>
+                <div class="blog-meta">Souvik Dey · 12 min read</div>
               </div>
               <span class="blog-arrow">↗</span>
             </div>
@@ -712,87 +718,87 @@
     <!-- ── PROJECTS GRID ────────────────────────────── -->
     <section class="projects-grid">
 
-      <div class="proj-card">
-        <div class="proj-img">
-          <div class="g4 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
-            <span
-              style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.4)">Prism
-              UI</span>
-          </div>
-        </div>
-        <span class="project-tag tag-green">Open Source</span>
-        <div class="proj-title">Prism UI — adaptive components for AI-generated interfaces</div>
-        <p class="proj-body">An open-source design system shipping tokens, components, and layout primitives optimised
-          for interfaces that dynamically reshape based on context and user intent.</p>
-        <div class="related-label">From the blog</div>
-        <div class="proj-blogs">
-          <div class="proj-blog-item">
-            <span class="proj-blog-num">01</span>
-            <span class="proj-blog-title">The case for ambient interfaces — why invisible UI is the next frontier</span>
-          </div>
-          <div class="proj-blog-item">
-            <span class="proj-blog-num">02</span>
-            <span class="proj-blog-title">Building a token system that survives a runtime redesign</span>
-          </div>
-          <div class="proj-blog-item">
-            <span class="proj-blog-num">03</span>
-            <span class="proj-blog-title">Prism UI reaches 5,000 GitHub stars — what we built next</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-img">
-          <div class="g6 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
-            <span
-              style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.4)">MindMap</span>
-          </div>
-        </div>
-        <span class="project-tag tag-red">Cognitive Systems</span>
-        <div class="proj-title">MindMap — visualising latent space geometry in transformer models</div>
-        <p class="proj-body">An interactive tool to render the internal geometry of transformer models, helping
-          researchers identify concept clusters, biases, and emergent capabilities without probing classifiers.</p>
-        <div class="related-label">From the blog</div>
-        <div class="proj-blogs">
-          <div class="proj-blog-item">
-            <span class="proj-blog-num">01</span>
-            <span class="proj-blog-title">What does a language model actually "know"? A visual exploration</span>
-          </div>
-          <div class="proj-blog-item">
-            <span class="proj-blog-num">02</span>
-            <span class="proj-blog-title">Emergent capabilities are not magic — they are geometry</span>
-          </div>
-          <div class="proj-blog-item">
-            <span class="proj-blog-num">03</span>
-            <span class="proj-blog-title">Using MindMap to audit bias in production embeddings</span>
-          </div>
-        </div>
-      </div>
-
+      <!-- Quiet Goals -->
       <div class="proj-card">
         <div class="proj-img">
           <div class="g5 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
-            <span
-              style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.4)">QL-Scaffold</span>
+            <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.4)">Quiet Goals</span>
           </div>
         </div>
-        <span class="project-tag tag-outline">Developer Tools</span>
-        <div class="proj-title">QL-Scaffold — AI pipeline scaffolding from idea to production in 60 seconds</div>
-        <p class="proj-body">QL-Scaffold generates opinionated, production-ready boilerplate for complex AI pipelines —
-          including routing, evaluation harnesses, and observability — from a single config file.</p>
+        <span class="project-tag tag-green">Productivity</span>
+        <a href="https://quiet-goals.qurtesy.com/" target="_blank" rel="noopener">
+          <div class="proj-title">Quiet Goals — turn your most important milestone into a private wallpaper</div>
+        </a>
+        <p class="proj-body">No account, no tracking — just your goal on your screen, every day. Built with Next.js and Canvas API. Calm, private, distraction-free.</p>
         <div class="related-label">From the blog</div>
         <div class="proj-blogs">
           <div class="proj-blog-item">
             <span class="proj-blog-num">01</span>
-            <span class="proj-blog-title">Why we believe opinionated scaffolding beats flexible frameworks</span>
+            <span class="proj-blog-title">Why your goal tracker is probably getting in the way</span>
           </div>
           <div class="proj-blog-item">
             <span class="proj-blog-num">02</span>
-            <span class="proj-blog-title">Smaller, faster, smarter — edge LLM distillation at scale</span>
+            <span class="proj-blog-title">Building a wallpaper generator with Next.js and Canvas API</span>
           </div>
           <div class="proj-blog-item">
             <span class="proj-blog-num">03</span>
-            <span class="proj-blog-title">On-device inference for 7B models: benchmarks across consumer hardware</span>
+            <span class="proj-blog-title">Calm software: designing tools that don't demand your attention</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Random Stats -->
+      <div class="proj-card">
+        <div class="proj-img">
+          <div class="g1 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
+            <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.4)">RandomStats · Synthetic Data Engine</span>
+          </div>
+        </div>
+        <span class="project-tag tag-blue">Developer Tools</span>
+        <a href="https://random-stats.vercel.app/" target="_blank" rel="noopener">
+          <div class="proj-title">RandomStats — generate realistic fake datasets instantly, no login required</div>
+        </a>
+        <p class="proj-body">Design your schema, set field types and ranges, and get shareable synthetic data for Excel, Google Sheets, or any analysis practice. Export to CSV or XLSX. 100% free, shareable via URL.</p>
+        <div class="related-label">From the blog</div>
+        <div class="proj-blogs">
+          <div class="proj-blog-item">
+            <span class="proj-blog-num">01</span>
+            <span class="proj-blog-title">Why every developer needs a synthetic data generator in their toolkit</span>
+          </div>
+          <div class="proj-blog-item">
+            <span class="proj-blog-num">02</span>
+            <span class="proj-blog-title">Schema-first data generation — the technical decisions behind RandomStats</span>
+          </div>
+          <div class="proj-blog-item">
+            <span class="proj-blog-num">03</span>
+            <span class="proj-blog-title">Fake data, real insights — using synthetic datasets for practice and prototyping</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flooke -->
+      <div class="proj-card">
+        <div class="proj-img">
+          <div class="g6 proj-img-inner" style="display:flex;align-items:flex-end;padding:16px">
+            <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.4)">Flooke</span>
+          </div>
+        </div>
+        <span class="project-tag tag-red">React Native</span>
+        <div class="proj-title">Flooke — order-ticketing for our café, built in React Native</div>
+        <p class="proj-body">First time I shipped a real product to real users — the kitchen staff. The café closed; the lessons about building for a real, specific audience didn't.</p>
+        <div class="related-label">From the blog</div>
+        <div class="proj-blogs">
+          <div class="proj-blog-item">
+            <span class="proj-blog-num">01</span>
+            <span class="proj-blog-title">Shipping React Native to a real kitchen — lessons from Flooke</span>
+          </div>
+          <div class="proj-blog-item">
+            <span class="proj-blog-num">02</span>
+            <span class="proj-blog-title">When you're the engineer and the customer at the same time</span>
+          </div>
+          <div class="proj-blog-item">
+            <span class="proj-blog-num">03</span>
+            <span class="proj-blog-title">The café closed. The code didn't.</span>
           </div>
         </div>
       </div>
